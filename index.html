@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus Point | Vidrios Templados</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="hero-tienda">
+        <span class="badge">Tecnología y Protección</span>
+        <h1>Nexus Point</h1>
+        <p>Vidrios templados de alta gama para mantener tu pantalla intacta.</p>
+        <input type="text" id="buscador" placeholder="Busca tu modelo (Ej: 16PM, S26U)...">
+    </header>
+
+    <main class="contenedor">
+        <div class="filtros" aria-label="Filtros por marca">
+            <button type="button" aria-pressed="true" onclick="filtrarMarca('Todos')">Todos</button>
+            <button type="button" aria-pressed="false" onclick="filtrarMarca('Apple')">Apple</button>
+            <button type="button" aria-pressed="false" onclick="filtrarMarca('Samsung')">Samsung</button>
+            <button type="button" aria-pressed="false" onclick="filtrarMarca('Joyas')">Joyas</button>
+            <button type="button" id="limpiarFiltros" class="boton-limpiar">Limpiar filtros</button>
+        </div>
+
+        <p id="resumenResultados" class="resumen-resultados" aria-live="polite"></p>
+        <section id="catalogo" class="grid-productos" aria-live="polite"></section>
+        <nav id="paginacion" class="paginacion" aria-label="Paginación del catálogo"></nav>
+    </main>
+
+    <div id="modalImagen" class="modal-imagen" aria-hidden="true">
+        <div class="modal-contenido">
+            <button type="button" class="modal-cerrar" aria-label="Cerrar imagen">×</button>
+            <img id="imagenAmpliada" src="" alt="Vista ampliada del producto">
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
