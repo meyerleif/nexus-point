@@ -38,6 +38,21 @@ const productos = [
     { id: "pendientes-pulpo", marca: "Joyas", modelo: "Pendientes de pulpo", tipo: "Joyería", precio: 35000, stock: null, imagen: "assets/img/optimizado/pendientes de pulpo.webp" }
 ];
 
+const ordenMarcas = { Apple: 0, Samsung: 1, Joyas: 2 };
+
+function obtenerNumeroMayorModelo(modelo) {
+    const numeros = modelo.match(/\d+/g);
+    if (!numeros) return 0;
+    return Math.max(...numeros.map(Number));
+}
+
+productos.sort((a, b) => {
+    const diferenciaMarca = ordenMarcas[a.marca] - ordenMarcas[b.marca];
+    if (diferenciaMarca !== 0) return diferenciaMarca;
+
+    return obtenerNumeroMayorModelo(b.modelo) - obtenerNumeroMayorModelo(a.modelo);
+});
+
 const contenedor = document.getElementById("catalogo");
 const inputBuscador = document.getElementById("buscador");
 const resumenResultados = document.getElementById("resumenResultados");
